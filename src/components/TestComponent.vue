@@ -2,7 +2,7 @@
   {{ cell }}
   <div class="grid max-w-[1056px] m-auto grid-cols-stc grid-rows-str">
     <div
-      v-for="(cell, index) in cells" :key="index" class="box-border block w-12 h-12 text-xs bg-red-600 border-2 border-red-950"
+      v-for="(cell, index) in cells" :key="index" class="box-border block w-12 h-12 text-xs bg-red-600 border-2 cursor-pointer border-red-950"
       @click="logPos(cell.x, cell.y); cell.selected = !cell.selected"
     >
       x: {{ cell.x }}
@@ -45,11 +45,12 @@ const cells = computed(() => {
 })
 
 function logPos(x: number, y: number) {
+  console.log(`x: ${x}`, `y: ${y}`);
   console.log(getPos(x, y))
 }
 
 function getPos (x: number, y: number) : number {
-  const gridLength = 22
-  return (gridLength * y) - x + x - (gridLength - x)
+  const columns = 22
+  return (columns * y) - (columns - x)
 }
 </script>
