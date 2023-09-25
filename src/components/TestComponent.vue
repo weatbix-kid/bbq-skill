@@ -33,11 +33,13 @@ const cell : Ref<Cell> = ref({
 
 const cells = computed(() => {
   let cells = []
-  for (let rowIndex = 1; rowIndex <= 20; rowIndex++) {        // rows
-    for (let colIndex = 1; colIndex <= 22; colIndex++) {      // columns
+  const rows : number = 20
+  const columns : number = 22
+  for (let rowIndex = 1; rowIndex <= rows; rowIndex++) {           // rows
+    for (let colIndex = 1; colIndex <= columns; colIndex++) {      // columns
       let newCell = JSON.parse(JSON.stringify(cell.value))
       newCell.x = colIndex
-      newCell.y = rowIndex
+      newCell.y = rows - rowIndex + 1
       cells.push(newCell)
     }
   }
@@ -51,6 +53,7 @@ function logPos(x: number, y: number) {
 
 function getPos (x: number, y: number) : number {
   const columns = 22
-  return (columns * y) - (columns - x)
+  const rows = 20
+  return columns * (rows - y) - (columns - x) + columns;
 }
 </script>
