@@ -1,9 +1,10 @@
 import { Attribute } from './enums'
 
 export interface Cell {
-  node: Node,
   x: Number,
   y: Number,
+  pos: Number,
+  node: Node,
 }
 
 export interface Node {

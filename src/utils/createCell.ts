@@ -2,6 +2,9 @@ import { Attribute } from "@/enums"
 
 export default () => {
   return {
+    x: 1,
+    y: 1,
+    pos: 1,
     node: {
       type: {
         cost: 1,
@@ -9,8 +12,6 @@ export default () => {
         type: Attribute.Generic,
       },
       selected: false,
-    },
-    x: 1,
-    y: 1
+    }
   }
 }

@@ -2,12 +2,13 @@
   {{ cell }}
   <div class="grid max-w-[1056px] m-auto grid-cols-stc grid-rows-str">
     <div
-      v-for="(cell, index) in cells" :key="index" class="box-border block w-12 h-12 text-xs bg-red-600 border-2 cursor-pointer border-red-950"
+      v-for="(cell, index) in cells" :key="index" class="box-border block w-12 h-12 text-xs bg-red-600 border-2 cursor-pointer border-red-950" :class="setOrder(cell.pos)"
       @click="logPos(cell.x, cell.y); cell.selected = !cell.selected"
     >
       x: {{ cell.x }}
       y: {{ cell.y }}
-      {{ index + 1 }}
+      <!-- {{ cell.pos }} -->
+      <!-- {{ index + 1 }} -->
     </div>
   </div>
 </template>
@@ -19,6 +20,9 @@ import type { Cell } from '../types'
 import { Attribute } from '../enums'
 
 const cell : Ref<Cell> = ref({
+  x: 1,
+  y: 1,
+  pos: 1,
   node: {
     type: {
       cost: 1,
@@ -27,8 +31,6 @@ const cell : Ref<Cell> = ref({
     },
     selected: false,
   },
-  x: 1,
-  y: 1
 })
 
 const cells = computed(() => {
@@ -40,10 +42,11 @@ const cells = computed(() => {
       let newCell = JSON.parse(JSON.stringify(cell.value))
       newCell.x = colIndex
       newCell.y = rows - rowIndex + 1
+      newCell.pos = getPos(newCell.x, newCell.y)
       cells.push(newCell)
     }
   }
-  return cells
+  return cells // .sort(() => Math.random() - 0.5);
 })
 
 function logPos(x: number, y: number) {
@@ -56,4 +59,7 @@ function getPos (x: number, y: number) : number {
   const rows = 20
   return columns * (rows - y) - (columns - x) + columns;
 }
+
+// tailwind and dynamic templating for order[n] dont work nicely??
+function setOrder (pos: number) { return `order-[${pos}]` }
 </script>
