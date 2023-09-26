@@ -2,8 +2,8 @@
   {{ cell }}
   <div class="grid max-w-[1056px] m-auto grid-cols-stc grid-rows-str">
     <div
-      v-for="(cell, index) in cells" :key="index" class="box-border block w-12 h-12 text-xs bg-red-600 border-2 cursor-pointer border-red-950" :class="setOrder(cell.pos)"
-      @click="logPos(cell.x, cell.y); cell.selected = !cell.selected"
+      v-for="(cell, index) in cells" :key="index" class="box-border block w-12 h-12 text-xs bg-red-600 border-2 cursor-pointer border-red-950" :style="`order: ${cell.pos}`"
+      @click="logPos(cell.x, cell.y)"
     >
       x: {{ cell.x }}
       y: {{ cell.y }}
@@ -60,6 +60,4 @@ function getPos (x: number, y: number) : number {
   return columns * (rows - y) - (columns - x) + columns;
 }
 
-// tailwind and dynamic templating for order[n] dont work nicely??
-function setOrder (pos: number) { return `order-[${pos}]` }
 </script>
