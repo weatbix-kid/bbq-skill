@@ -7,11 +7,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import type { Ref } from 'vue'
-import type { Cell } from '../types'
-import { Attribute } from '../enums'
-import { getCellPos } from '../utils/gridFunctions'
+import type { Cell } from '@/types'
+import { Attribute } from '@/enums'
+import { getCellPos } from '@/utils/gridFunctions'
 
-import GridCell  from '../components/GridCell.vue'
+import GridCell  from '@/components/GridCell.vue'
 
 const cell : Ref<Cell> = ref({
   x: 1,

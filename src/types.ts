@@ -13,7 +13,7 @@ export interface Node {
 }
 
 export interface NodeType {}
-export interface Junction extends NodeType {}
+export interface Junction extends NodeType {}       // maybe junction is a attribute type with 0 cost and value
 export interface Purchasable extends NodeType {
   cost: Number,
   value: Number
