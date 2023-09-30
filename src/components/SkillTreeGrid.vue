@@ -18,12 +18,12 @@ const cell : Ref<Cell> = ref({
   y: 1,
   pos: 1,
   node: {
+    selected: false,
     type: {
       cost: 1,
       value: 1,
       type: Attribute.Generic,
     },
-    selected: false,
   },
 })
 

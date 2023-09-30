@@ -2,11 +2,12 @@
   <div
     :style="`order: ${cell.pos}`"
     class="box-border block w-12 h-12 text-xs bg-red-600 border-2 cursor-pointer select-none border-red-950"
-    :class="cell.node.selected ? 'bg-green-600 border-green-950' : null"
+    :class="cell.node.selected ? '!bg-green-600 !border-green-950' : null"
     @click="logPos((cell.x as number), (cell.y as number)); cell.node.selected = !cell.node.selected"
   >
     x: {{ cell.x }}
     y: {{ cell.y }}
+    {{ cell.node.selected }}
   </div>
 </template>
 

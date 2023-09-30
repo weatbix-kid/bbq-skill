@@ -8,8 +8,8 @@ export interface Cell {
 }
 
 export interface Node {
-  type: NodeType,
   selected: Boolean,
+  type: NodeType,
 }
 
 export interface NodeType {}
