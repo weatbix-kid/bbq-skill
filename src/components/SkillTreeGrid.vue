@@ -31,12 +31,13 @@ const cells = computed(() => {
   let cells = []
   const rows : number = 20
   const columns : number = 22
-  for (let rowIndex = 1; rowIndex <= rows; rowIndex++) {           // rows
-    for (let colIndex = 1; colIndex <= columns; colIndex++) {      // columns
+  for (let rowIndex = 1; rowIndex <= rows; rowIndex++) {              // rows
+    for (let colIndex = 1; colIndex <= columns; colIndex++) {         // columns
       let newCell = JSON.parse(JSON.stringify(cell.value))
       newCell.x = colIndex
       newCell.y = rows - rowIndex + 1
       newCell.pos = getCellPos(newCell.x, newCell.y)
+      newCell.node = Math.random() < 0.5 ? undefined : newCell.node   // testing empties
       cells.push(newCell)
     }
   }

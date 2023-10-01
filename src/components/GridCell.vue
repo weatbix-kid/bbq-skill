@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="cell.node"
     :style="`order: ${cell.pos}`"
     class="box-border block w-12 h-12 text-xs bg-red-600 border-2 cursor-pointer select-none border-red-950"
     :class="cell.node.selected ? '!bg-green-600 !border-green-950' : null"
@@ -9,6 +10,7 @@
     y: {{ cell.y }}
     {{ cell.node.selected }}
   </div>
+  <div v-else class="box-border block w-12 h-12" :style="`order: ${cell.pos}`"></div>
 </template>
 
 <script setup lang="ts">

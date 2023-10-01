@@ -4,7 +4,7 @@ export interface Cell {
   x: Number,
   y: Number,
   pos: Number,
-  node: Node,
+  node?: Node,
 }
 
 export interface Node {
