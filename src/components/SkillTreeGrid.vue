@@ -8,7 +8,7 @@
 import { ref, computed } from 'vue'
 import type { Ref } from 'vue'
 import type { Cell } from '@/types'
-import { Attribute } from '@/enums'
+import { PerkType } from '@/enums'
 import { getCellPos } from '@/utils/gridFunctions'
 
 import GridCell  from '@/components/GridCell.vue'
@@ -19,11 +19,7 @@ const cell : Ref<Cell> = ref({
   pos: 1,
   node: {
     selected: false,
-    type: {
-      cost: 1,
-      value: 1,
-      type: Attribute.Generic,
-    },
+    type: {},
   },
 })
 

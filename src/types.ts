@@ -1,4 +1,4 @@
-import { Attribute } from './enums'
+import { PerkType } from './enums'
 
 export interface Cell {
   x: Number,
@@ -9,18 +9,21 @@ export interface Cell {
 
 export interface Node {
   selected: Boolean,
-  type: NodeType,
+  type: Attribute | Perk | Path,
 }
 
-export interface NodeType {}
-export interface Junction extends NodeType {}       // maybe junction is a attribute type with 0 cost and value
-export interface Purchasable extends NodeType {
-  cost: Number,
-  value: Number
-  type: Attribute,
-  perk?: Perk,
-}
+// Is automatically selected if one direction, otherwise its a junction and needs user input
+export interface Path {}
 
-export interface Perk extends Purchasable {
+// Assume cost/value always costs or is valued at one
+export interface Attribute {}
+
+// Always costs 3
+// can yeild a different value (strictly for type) depending on the level of perk
+export interface Perk {
   id: Number,
+  type: PerkType,
+  name: String,
+  descriptions: String[],
+  level: Number,
 }

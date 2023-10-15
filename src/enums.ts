@@ -1,5 +1,4 @@
-export enum Attribute {
-  Generic = 'generic',
+export enum PerkType {
   Toughness = 'toughness',
   Endurance = 'endurance',
   Strength = 'strength',
